@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Cinzel', Georgia, serif;
+    --obsidian: #0a111a;
+    --royal-blue: #183f6e;
+    --mint-accent: #ddf0ec;
+    --light-grey: #f8fafc;
+    --border-grey: #e2e8f0;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #ffffff;
+    color: #0a111a;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #183f6e;
+}
+
+/* Smooth hide scrollbar utility for horizontal strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Brand subtle borders */
+.border-brand-subtle {
+  border-color: rgba(24, 63, 110, 0.25);
+}
+
+.border-mint-subtle {
+  border-color: rgba(221, 240, 236, 0.35);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #ddf0ec 60%, #183f6e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Primary Button with Royal Blue & Mint */
+.gold-bg-btn,
+.btn-primary {
+  background-color: #183f6e;
+  color: #ddf0ec;
+  border: 1px solid rgba(221, 240, 236, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gold-bg-btn:hover,
+.btn-primary:hover {
+  background-color: #123157;
+  color: #ffffff;
+  border-color: rgba(221, 240, 236, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(24, 63, 110, 0.4);
+}
+
+/* Mint Accent Button */
+.btn-mint {
+  background-color: #ddf0ec;
+  color: #183f6e;
+  border: 1px solid rgba(24, 63, 110, 0.15);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-mint:hover {
+  background-color: #ffffff;
+  color: #183f6e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(221, 240, 236, 0.5);
+}
+
+/* Headings on non-blue backgrounds */
+h1:not([class*="text-white"]):not([class*="text-slate-"]):not([class*="text-rose-"]),
+h2:not([class*="text-white"]):not([class*="text-slate-"]):not([class*="text-rose-"]),
+h3:not([class*="text-white"]):not([class*="text-slate-"]):not([class*="text-rose-"]),
+h4:not([class*="text-white"]):not([class*="text-slate-"]):not([class*="text-rose-"]) {
+  color: #0a111a;
+}
+
+/* Large typographic outline for footer */
+.text-outline-giant {
+  -webkit-text-stroke: 1.5px rgba(221, 240, 236, 0.22);
+  color: transparent;
+  user-select: none;
+  pointer-events: none;
+}
+@media (min-width: 1024px) {
+  .text-outline-giant {
+    -webkit-text-stroke: 2px rgba(221, 240, 236, 0.28);
+  }
+}
