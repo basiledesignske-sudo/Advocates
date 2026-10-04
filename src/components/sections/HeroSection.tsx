@@ -15,9 +15,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background Photography with measured contrast scrim */}
       <div className="absolute inset-0 z-0 bg-[#0f2847]">
         <img
-          src="/images/hero_law_firm_1790847178281.jpg"
-          alt="Wafula PW & Co. Advocates Chambers"
-          className="w-full h-full object-cover object-center filter brightness-[0.38] contrast-[1.12] transform scale-[1.01]"
+          src="/images/lady-justice-statue-front-courthouse.jpg"
+          alt="Statue of Lady Justice before courthouse - Wafula PW & Co. Advocates"
+          className="w-full h-full object-cover object-center filter brightness-[0.42] contrast-[1.08] transform scale-[1.01]"
           loading="eager"
           fetchPriority="high"
           decoding="async"

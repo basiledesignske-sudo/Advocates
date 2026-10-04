@@ -103,23 +103,22 @@ export const PracticeAreasSection: React.FC<PracticeAreasSectionProps> = ({
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a111a] via-[#0a111a]/70 to-transparent" />
 
-            <div className="relative z-10 p-6 sm:p-7 flex flex-col justify-end h-full">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#ddf0ec] px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/15">
-                  {practice.keyServices.length} Core Services
-                </span>
+            <div className="relative z-10 p-6 sm:p-7 flex flex-col justify-between h-full">
+              <div className="flex items-center justify-start">
                 <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-[#ddf0ec] text-white group-hover:text-[#183f6e] flex items-center justify-center transition-all duration-200">
                   <ArrowUpRight className="w-4 h-4" />
                 </div>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-[#ddf0ec] transition-colors">
-                {practice.name}
-              </h3>
+              <div className="mt-auto">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-[#ddf0ec] transition-colors">
+                  {practice.name}
+                </h3>
 
-              <p className="text-xs sm:text-sm text-slate-300 line-clamp-3 leading-relaxed">
-                {practice.description}
-              </p>
+                <p className="text-xs sm:text-sm text-slate-300 line-clamp-3 leading-relaxed">
+                  {practice.description}
+                </p>
+              </div>
             </div>
           </div>
         ))}

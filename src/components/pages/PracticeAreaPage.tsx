@@ -5,16 +5,10 @@ import {
   ArrowLeft,
   CheckCircle2,
   Shield,
-  Building2,
-  Gavel,
-  Home,
-  Briefcase,
-  ShieldAlert,
-  Scale,
   Share2,
   Check,
 } from 'lucide-react';
-import { PracticeArea, Attorney, CaseStudy, LegalArticle, PracticeAreaId } from '../../types';
+import { PracticeArea, Attorney, CaseStudy, LegalArticle } from '../../types';
 import { practiceAreasData, attorneysData } from '../../data/mockData';
 import { GoldStar } from '../ui/JusticeLogo';
 
@@ -59,127 +53,67 @@ export const PracticeAreaPage: React.FC<PracticeAreaPageProps> = ({
     }
   };
 
-  const getDisciplineIcon = (id: PracticeAreaId) => {
-    switch (id) {
-      case 'corporate-commercial':
-        return <Building2 className="w-4 h-4" />;
-      case 'dispute-resolution':
-        return <Gavel className="w-4 h-4" />;
-      case 'real-estate-conveyancing':
-        return <Home className="w-4 h-4" />;
-      case 'employment-labour':
-        return <Briefcase className="w-4 h-4" />;
-      case 'intellectual-property':
-        return <ShieldAlert className="w-4 h-4" />;
-      case 'cross-border-international':
-      default:
-        return <Scale className="w-4 h-4" />;
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-[#f1f5f9] text-[#183f6e] pt-24 sm:pt-28 pb-20">
-      {/* Top Breadcrumb & Action Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-        <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 pb-3 border-b border-slate-200">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 flex-wrap">
-            <button
-              onClick={() => onNavigateHome('hero')}
-              className="hover:text-[#183f6e] transition-colors cursor-pointer font-medium"
-            >
-              Home
-            </button>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <button
-              onClick={() => onNavigateHome('practice-areas')}
-              className="hover:text-[#183f6e] transition-colors cursor-pointer font-medium"
-            >
-              Practice Disciplines
-            </button>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-[#183f6e] font-semibold truncate max-w-[240px] sm:max-w-md">
-              {practice.shortName}
-            </span>
-          </nav>
+    <div className="min-h-screen bg-[#f1f5f9] text-[#183f6e] pb-20">
+      {/* Hero Header Section for Practice Area (Edge to Edge) */}
+      <section data-nav-theme="blue" className="relative w-full overflow-hidden bg-[#183f6e] text-white pt-24 sm:pt-28 pb-14 sm:pb-16 px-4 sm:px-6 lg:px-8 mb-10 border-b border-white/10">
+        <img
+          src={practice.image}
+          alt={practice.name}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.38] contrast-110 pointer-events-none"
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = '/images/hero_law_firm_1790847178281.jpg';
+          }}
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a111a] via-[#0a111a]/85 to-transparent pointer-events-none" />
 
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={handleShare}
-              title="Share practice page URL"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 hover:border-slate-300 text-slate-600 font-medium text-xs transition-colors cursor-pointer"
-            >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
-              <span>{copied ? 'Link Copied!' : 'Share'}</span>
-            </button>
-            <button
-              onClick={() => onNavigateHome('practice-areas')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-[#183f6e] font-semibold text-xs transition-colors cursor-pointer"
-            >
-              <ArrowLeft className="w-3.5 h-3.5" />
-              <span>All Disciplines</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Core Practice Disciplines Quick Navigation Tabs */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-        <div className="bg-white rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-sm">
-          <div className="flex items-center justify-between gap-3 mb-2 px-2">
-            <div className="flex items-center gap-2">
-              <GoldStar className="w-3 h-3 text-[#183f6e]" />
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#183f6e]">
-                Core Practice Disciplines
+        <div className="w-full max-w-7xl mx-auto relative z-10">
+          {/* Top Breadcrumb & Action Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300 pb-4 mb-8 border-b border-white/15">
+            <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 flex-wrap">
+              <button
+                onClick={() => onNavigateHome('hero')}
+                className="hover:text-[#ddf0ec] transition-colors cursor-pointer font-medium"
+              >
+                Home
+              </button>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <button
+                onClick={() => onNavigateHome('practice-areas')}
+                className="hover:text-[#ddf0ec] transition-colors cursor-pointer font-medium"
+              >
+                Practice Disciplines
+              </button>
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <span className="text-[#ddf0ec] font-semibold truncate max-w-[240px] sm:max-w-md">
+                {practice.shortName}
               </span>
+            </nav>
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={handleShare}
+                title="Share practice page URL"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium text-xs transition-colors cursor-pointer backdrop-blur-xs"
+              >
+                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
+                <span>{copied ? 'Link Copied!' : 'Share'}</span>
+              </button>
+              <button
+                onClick={() => onNavigateHome('practice-areas')}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#ddf0ec] text-[#183f6e] hover:bg-white font-semibold text-xs transition-colors cursor-pointer shadow-xs"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>All Disciplines</span>
+              </button>
             </div>
-            <span className="text-[11px] text-slate-400 hidden sm:inline">
-              Select any discipline tab to view its dedicated page
-            </span>
           </div>
 
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-            {practiceAreasData.map((item) => {
-              const isActive = item.id === practice.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => onSelectPractice(item)}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${
-                    isActive
-                      ? 'bg-[#183f6e] text-white shadow-sm ring-1 ring-[#183f6e]'
-                      : 'bg-slate-50 hover:bg-[#ddf0ec]/40 text-slate-700 border border-slate-200/80 hover:text-[#183f6e]'
-                  }`}
-                  aria-current={isActive ? 'page' : undefined}
-                >
-                  <span className={isActive ? 'text-[#ddf0ec]' : 'text-slate-500'}>
-                    {getDisciplineIcon(item.id)}
-                  </span>
-                  <span>{item.shortName}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Hero Header Section for Practice Area */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-        <div className="relative rounded-3xl overflow-hidden bg-[#183f6e] text-white p-6 sm:p-10 lg:p-14 shadow-xl border border-white/20">
-          <img
-            src={practice.image}
-            alt={practice.name}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover filter brightness-[0.38] contrast-110 pointer-events-none"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src = '/images/hero_law_firm_1790847178281.jpg';
-            }}
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a111a] via-[#0a111a]/85 to-transparent pointer-events-none" />
-
-          <div className="relative z-10 max-w-3xl">
+          <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-4">
               <GoldStar className="w-3.5 h-3.5 text-[#ddf0ec]" />
               <span className="text-[11px] font-bold uppercase tracking-widest text-[#ddf0ec]">

@@ -128,75 +128,80 @@ export const InsightArticlePage: React.FC<InsightArticlePageProps> = ({
       </div>
 
       {/* Main Article Container */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Article Header Card */}
-        <header className="bg-white rounded-3xl p-6 sm:p-10 md:p-12 border border-slate-200/80 shadow-sm mb-8">
-          <div className="flex flex-wrap items-center gap-3 text-xs mb-5">
-            <span className="px-3.5 py-1 rounded-full bg-[#183f6e] text-white font-semibold uppercase tracking-wider text-[11px]">
-              {article.category}
-            </span>
-            <span className="inline-flex items-center gap-1 text-slate-500 font-medium">
-              <Calendar className="w-3.5 h-3.5 text-[#183f6e]" />
-              {article.date}
-            </span>
-          </div>
-
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold text-[#0a111a] tracking-tight leading-tight sm:leading-[1.2] mb-8">
-            {article.title}
-          </h1>
-
-          {/* Author Details & Article Actions Bar */}
-          <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-3.5">
-              <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-200 border border-slate-300 shrink-0">
-                <img
-                  src={article.authorImage || '/Wafula Paul.jpg'}
-                  alt={article.author}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/Wafula Paul.jpg';
-                  }}
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div>
-                <div className="text-sm font-bold text-[#0a111a] flex items-center gap-1.5">
-                  <span>{article.author}</span>
-                  <ShieldCheck className="w-4 h-4 text-[#183f6e]" />
-                </div>
-                <div className="text-xs text-slate-500 font-medium">
-                  {article.authorRole} · Wafula PW &amp; Co. Advocates
-                </div>
-              </div>
+      <div className="w-full">
+        {/* Article Header - Full Width Edge to Edge */}
+        <header className="w-full bg-white border-y border-slate-200/80 py-10 sm:py-12 md:py-14 mb-8 shadow-xs">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-wrap items-center gap-3 text-xs mb-5">
+              <span className="px-3.5 py-1 rounded-full bg-[#183f6e] text-white font-semibold uppercase tracking-wider text-[11px]">
+                {article.category}
+              </span>
+              <span className="inline-flex items-center gap-1 text-slate-500 font-medium">
+                <Calendar className="w-3.5 h-3.5 text-[#183f6e]" />
+                {article.date}
+              </span>
             </div>
 
-            {/* Utility actions: Share, Print */}
-            <div className="flex items-center gap-2 self-start sm:self-auto">
-              <button
-                type="button"
-                onClick={handleShare}
-                aria-label="Share article"
-                title="Copy article link"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 hover:border-slate-300 text-xs font-semibold text-slate-600 hover:text-[#183f6e] bg-slate-50 transition-colors cursor-pointer"
-              >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
-                <span>{copied ? 'Link Copied!' : 'Share'}</span>
-              </button>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold text-[#0a111a] tracking-tight leading-tight sm:leading-[1.2] mb-8">
+              {article.title}
+            </h1>
 
-              <button
-                type="button"
-                onClick={handlePrint}
-                aria-label="Print article"
-                title="Print article"
-                className="p-2 rounded-xl border border-slate-200 hover:border-slate-300 text-slate-600 hover:text-[#183f6e] bg-slate-50 transition-colors cursor-pointer"
-              >
-                <Printer className="w-3.5 h-3.5" />
-              </button>
+            {/* Author Details & Article Actions Bar */}
+            <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-slate-200 border border-slate-300 shrink-0">
+                  <img
+                    src={article.authorImage || '/Wafula Paul.jpg'}
+                    alt={article.author}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/Wafula Paul.jpg';
+                    }}
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-[#0a111a] flex items-center gap-1.5">
+                    <span>{article.author}</span>
+                    <ShieldCheck className="w-4 h-4 text-[#183f6e]" />
+                  </div>
+                  <div className="text-xs text-slate-500 font-medium">
+                    {article.authorRole} · Wafula PW &amp; Co. Advocates
+                  </div>
+                </div>
+              </div>
+
+              {/* Utility actions: Share, Print */}
+              <div className="flex items-center gap-2 self-start sm:self-auto">
+                <button
+                  type="button"
+                  onClick={handleShare}
+                  aria-label="Share article"
+                  title="Copy article link"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-slate-200 hover:border-slate-300 text-xs font-semibold text-slate-600 hover:text-[#183f6e] bg-slate-50 transition-colors cursor-pointer"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
+                  <span>{copied ? 'Link Copied!' : 'Share'}</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handlePrint}
+                  aria-label="Print article"
+                  title="Print article"
+                  className="p-2 rounded-xl border border-slate-200 hover:border-slate-300 text-slate-600 hover:text-[#183f6e] bg-slate-50 transition-colors cursor-pointer"
+                >
+                  <Printer className="w-3.5 h-3.5" />
+                </button>
+              </div>
             </div>
           </div>
         </header>
+
+        {/* Content Container (Takeaways, Body, Related, Next/Prev) */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Strategic Takeaways Box */}
         {article.keyTakeaways && article.keyTakeaways.length > 0 && (
@@ -353,6 +358,7 @@ export const InsightArticlePage: React.FC<InsightArticlePageProps> = ({
             </button>
           </div>
         </section>
+        </div>
       </div>
     </article>
   );

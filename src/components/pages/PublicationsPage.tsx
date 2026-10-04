@@ -107,29 +107,25 @@ export const PublicationsPage: React.FC<PublicationsPageProps> = ({
   }, [filteredArticles, showAllTabs, activeTab, searchQuery]);
 
   return (
-    <div className="min-h-screen bg-[#fafbfc] text-[#183f6e] pt-24 sm:pt-28 pb-20">
-      {/* Breadcrumb Navigation */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-        <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-slate-500">
-          <button
-            onClick={() => onNavigateHome('hero')}
-            className="hover:text-[#183f6e] transition-colors cursor-pointer font-medium"
-          >
-            Home
-          </button>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-[#183f6e] font-semibold">
-            Publications &amp; Legal Knowledge
-          </span>
-        </nav>
-      </div>
+    <div className="min-h-screen bg-[#fafbfc] text-[#183f6e] pb-20">
+      {/* Hero Header (Edge to Edge) */}
+      <section data-nav-theme="blue" className="w-full bg-[#183f6e] text-white pt-24 sm:pt-28 pb-14 sm:pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden mb-12 border-b border-white/10">
+        <div className="w-full max-w-7xl mx-auto relative z-10">
+          {/* Breadcrumb Navigation */}
+          <nav aria-label="Breadcrumb" className="flex items-center gap-1.5 text-xs text-slate-300 mb-6">
+            <button
+              onClick={() => onNavigateHome('hero')}
+              className="hover:text-[#ddf0ec] transition-colors cursor-pointer font-medium"
+            >
+              Home
+            </button>
+            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+            <span className="text-[#ddf0ec] font-semibold">
+              Publications &amp; Legal Knowledge
+            </span>
+          </nav>
 
-      {/* Hero Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <div className="bg-[#183f6e] text-white rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl">
-          {/* Subtle background decoration */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
-          <div className="relative z-10 max-w-3xl">
+          <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
               <GoldStar className="w-3.5 h-3.5 text-[#ddf0ec]" />
               <span className="text-xs font-bold uppercase tracking-widest text-[#ddf0ec]">
@@ -166,6 +162,10 @@ export const PublicationsPage: React.FC<PublicationsPageProps> = ({
             </div>
           </div>
         </div>
+
+        {/* Subtle background decoration */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+        <div className="absolute bottom-0 left-10 w-80 h-80 bg-[#ddf0ec]/10 rounded-full blur-[90px] pointer-events-none" />
       </section>
 
       {/* Tabs Navigation */}
