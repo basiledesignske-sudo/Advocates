@@ -138,7 +138,7 @@ export const PublicationsPage: React.FC<PublicationsPageProps> = ({
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-8">
-              Rigorous jurisprudence analysis, regulatory guidelines, and tactical commentary authored by advocate Wafula Paul and our specialist legal teams in Nairobi.
+              Rigorous jurisprudence analysis, regulatory guidelines, and tactical commentary authored by advocate Wafula Paul.
             </p>
 
             {/* In-page Search Box */}

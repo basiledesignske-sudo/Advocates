@@ -62,7 +62,9 @@ export const PracticeAreaPage: React.FC<PracticeAreaPageProps> = ({
           alt={practice.name}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.38] contrast-110 pointer-events-none"
+          className={`absolute inset-0 w-full h-full object-cover filter brightness-[0.38] contrast-110 pointer-events-none ${
+            practice.id === 'cross-border-international' ? 'object-[82%_center]' : 'object-center'
+          }`}
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).src = '/images/hero_law_firm_1790847178281.jpg';
           }}

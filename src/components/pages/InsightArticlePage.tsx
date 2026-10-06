@@ -3,12 +3,10 @@ import {
   ArrowLeft,
   Calendar,
   Share2,
-  CheckCircle2,
   Printer,
   ArrowRight,
   ShieldCheck,
   Scale,
-  Sparkles,
   Check,
   ChevronRight,
 } from 'lucide-react';
@@ -200,36 +198,8 @@ export const InsightArticlePage: React.FC<InsightArticlePageProps> = ({
           </div>
         </header>
 
-        {/* Content Container (Takeaways, Body, Related, Next/Prev) */}
+        {/* Content Container (Body, Related, Next/Prev) */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Strategic Takeaways Box */}
-        {article.keyTakeaways && article.keyTakeaways.length > 0 && (
-          <section className="bg-gradient-to-br from-[#183f6e] to-[#112d4e] text-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-lg mb-8">
-            <div className="flex items-center gap-2 mb-4">
-              <Sparkles className="w-4 h-4 text-[#ddf0ec]" />
-              <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#ddf0ec]">
-                Key Strategic &amp; Legal Takeaways
-              </h2>
-            </div>
-            <p className="text-xs text-slate-300 mb-6">
-              Essential compliance directives for commercial entities, executive leadership, and foreign investors.
-            </p>
-            <div className="space-y-3.5">
-              {article.keyTakeaways.map((takeaway, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-start gap-3 p-3.5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
-                >
-                  <CheckCircle2 className="w-5 h-5 text-[#ddf0ec] shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
-                    {takeaway}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
 
         {/* Article Body Content */}
         <section className="bg-white rounded-3xl p-6 sm:p-10 md:p-12 border border-slate-200/80 shadow-sm mb-8">

@@ -39,23 +39,29 @@ export const JusticeLogo: React.FC<{
   darkText?: boolean;
   showTagline?: boolean;
   monogramColor?: string;
+  hideTextOnMobile?: boolean;
 }> = ({
   className = '',
   size = 32,
   darkText = false,
   showTagline = false,
   monogramColor,
+  hideTextOnMobile = false,
 }) => {
   const chosenColor = monogramColor || (darkText ? '#183f6e' : '#ddf0ec');
 
   return (
-    <div className={`flex items-center gap-3 select-none ${className}`}>
+    <div className={`flex items-center gap-2.5 sm:gap-3 select-none ${className}`}>
       {/* Official W | P monogram from uploaded SVG */}
       <div className="relative shrink-0 flex items-center justify-center">
         <WafulaLogoMonogram size={size} color={chosenColor} />
       </div>
 
-      <div className="flex flex-col justify-center leading-none">
+      <div
+        className={`flex flex-col justify-center leading-none ${
+          hideTextOnMobile ? 'hidden lg:flex' : ''
+        }`}
+      >
         <div className="flex items-center">
           <span
             className={`text-sm sm:text-base lg:text-lg font-bold tracking-tight font-sans whitespace-nowrap ${

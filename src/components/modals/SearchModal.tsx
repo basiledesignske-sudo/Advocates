@@ -74,7 +74,8 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         (art) =>
           art.title.toLowerCase().includes(cleanQuery) ||
           art.summary.toLowerCase().includes(cleanQuery) ||
-          art.category.toLowerCase().includes(cleanQuery)
+          art.category.toLowerCase().includes(cleanQuery) ||
+          art.author.toLowerCase().includes(cleanQuery)
       )
     : [];
 

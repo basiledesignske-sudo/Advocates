@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { JusticeLogo } from '../ui/JusticeLogo';
+import { JusticeLogo, WafulaLogoMonogram } from '../ui/JusticeLogo';
 import { Menu, X, Search, Phone, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
@@ -122,24 +122,25 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 w-full z-50 pointer-events-auto">
       <div
-        className={`w-full px-4 sm:px-8 lg:px-12 flex items-center justify-between py-3.5 sm:py-4 transition-colors duration-200 ${
+        className={`w-full px-4 sm:px-6 lg:px-12 flex items-center justify-between py-3 sm:py-3.5 lg:py-4 transition-colors duration-200 ${
           isWhiteNav
             ? 'bg-white border-b border-slate-200 shadow-sm text-slate-800'
             : 'bg-[#183f6e] border-b border-[#244f84] shadow-md text-white'
         }`}
       >
-        {/* Left: Brand Logo */}
+        {/* Left: Brand Logo - Monogram alone on mobile, Full name on desktop */}
         <button
           onClick={() => handleLinkClick('hero')}
-          className={`cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 rounded-lg group ${
+          className={`cursor-pointer text-left focus-visible:outline-none focus-visible:ring-2 rounded-lg group p-1 -ml-1 transition-transform active:scale-95 shrink-0 ${
             isWhiteNav ? 'focus-visible:ring-[#183f6e]' : 'focus-visible:ring-[#ddf0ec]'
           }`}
           aria-label="Wafula PW & Co. Advocates Home"
+          title="Wafula PW & Co. Advocates"
         >
-          <JusticeLogo size={28} darkText={isWhiteNav} />
+          <JusticeLogo size={32} darkText={isWhiteNav} hideTextOnMobile={true} />
         </button>
 
-        {/* Center: Desktop Navigation Links */}
+        {/* Center: Desktop Navigation Links (hidden on mobile) */}
         <nav
           aria-label="Primary Navigation"
           className="hidden lg:flex items-center gap-6 xl:gap-8 text-[13px] font-semibold"
@@ -170,11 +171,12 @@ export const Navbar: React.FC<NavbarProps> = ({
         </nav>
 
         {/* Right: Actions */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          {/* Desktop Search Button (hidden on mobile; available inside mobile dropdown) */}
           {onOpenSearch && (
             <button
               onClick={onOpenSearch}
-              className={`p-2 rounded-full transition-colors flex items-center gap-1.5 text-xs cursor-pointer focus-visible:outline-none focus-visible:ring-2 ${
+              className={`hidden lg:flex p-2 rounded-full transition-colors items-center gap-1.5 text-xs cursor-pointer focus-visible:outline-none focus-visible:ring-2 ${
                 isWhiteNav
                   ? 'text-slate-600 hover:text-[#183f6e] hover:bg-slate-100 border border-slate-200 focus-visible:ring-[#183f6e]'
                   : 'text-slate-300 hover:text-white hover:bg-white/10 focus-visible:ring-[#ddf0ec]'
@@ -189,10 +191,11 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           )}
 
+          {/* Book Consultation Button (visible on mobile and desktop) */}
           <button
             onClick={onOpenConsultation}
             onMouseEnter={() => onPreloadSection?.('contact')}
-            className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 shadow-md active:scale-95 ${
+            className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold whitespace-nowrap cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 shadow-md active:scale-95 ${
               isWhiteNav
                 ? 'bg-[#183f6e] text-white hover:bg-[#123157] focus-visible:ring-[#183f6e]'
                 : 'bg-[#ddf0ec] text-[#183f6e] hover:bg-white focus-visible:ring-[#ddf0ec]'
@@ -201,23 +204,28 @@ export const Navbar: React.FC<NavbarProps> = ({
             Book Consultation
           </button>
 
-          {/* Mobile Menu Button */}
+          {/* Three Lines Button (Mobile Dropdown Toggle) */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 cursor-pointer ${
+            className={`lg:hidden p-2 rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 cursor-pointer ${
               isWhiteNav
                 ? 'text-slate-700 hover:text-[#183f6e] hover:bg-slate-100 focus-visible:ring-[#183f6e]'
                 : 'text-slate-200 hover:text-white hover:bg-white/10 focus-visible:ring-[#ddf0ec]'
             }`}
-            aria-label="Toggle navigation menu"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileMenuOpen}
+            title="Navigation Menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5" aria-hidden="true" />
+            ) : (
+              <Menu className="w-5 h-5" aria-hidden="true" />
+            )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Dropdown - reveals all navbar buttons */}
       {mobileMenuOpen && (
         <div
           ref={mobileMenuRef}
@@ -227,6 +235,31 @@ export const Navbar: React.FC<NavbarProps> = ({
               : 'bg-[#183f6e] text-white border-white/10'
           }`}
         >
+          {/* Header in dropdown showing full brand identity */}
+          <div className={`flex items-center justify-between pb-3.5 mb-3 border-b ${isWhiteNav ? 'border-slate-200' : 'border-white/10'}`}>
+            <div className="flex items-center gap-2.5">
+              <WafulaLogoMonogram size={24} color={isWhiteNav ? '#183f6e' : '#ddf0ec'} />
+              <div className="flex flex-col">
+                <span className={`text-xs font-bold tracking-tight uppercase ${isWhiteNav ? 'text-slate-800' : 'text-white'}`}>
+                  Wafula PW &amp; Co. Advocates
+                </span>
+                <span className={`text-[10px] ${isWhiteNav ? 'text-slate-500' : 'text-slate-300'}`}>
+                  Navigation &amp; Quick Access
+                </span>
+              </div>
+            </div>
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className={`p-1.5 rounded-lg text-xs font-medium cursor-pointer ${
+                isWhiteNav ? 'text-slate-500 hover:bg-slate-100' : 'text-slate-300 hover:bg-white/10'
+              }`}
+              aria-label="Close menu"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* All Navbar Links */}
           <div className="flex flex-col gap-1.5 mb-4">
             {navLinks.map((link) => {
               const active = isLinkActive(link.target);
@@ -255,27 +288,27 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Quick Actions in Mobile Drawer */}
-          <div className={`pt-4 border-t flex flex-col gap-2 ${isWhiteNav ? 'border-slate-200' : 'border-white/10'}`}>
+          <div className={`pt-3 border-t flex flex-col gap-2 ${isWhiteNav ? 'border-slate-200' : 'border-white/10'}`}>
             {onOpenSearch && (
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenSearch();
                 }}
-                className={`w-full py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors cursor-pointer ${
+                className={`w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 transition-colors cursor-pointer ${
                   isWhiteNav
                     ? 'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200'
                     : 'bg-white/10 hover:bg-white/15 text-slate-200'
                 }`}
               >
                 <Search className={`w-4 h-4 ${isWhiteNav ? 'text-[#183f6e]' : 'text-[#ddf0ec]'}`} />
-                <span>Search practice areas, articles & cases (⌘K)</span>
+                <span>Search Practice Areas, Articles &amp; Cases (⌘K)</span>
               </button>
             )}
 
             <a
               href="tel:+254716954112"
-              className={`w-full py-2.5 px-3 rounded-xl text-xs font-semibold flex items-center gap-2 transition-colors ${
+              className={`w-full py-2.5 px-3.5 rounded-xl text-xs font-semibold flex items-center gap-2.5 transition-colors ${
                 isWhiteNav
                   ? 'bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200'
                   : 'bg-white/10 hover:bg-white/15 text-slate-200'

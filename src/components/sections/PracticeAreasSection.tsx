@@ -87,11 +87,15 @@ export const PracticeAreasSection: React.FC<PracticeAreasSectionProps> = ({
               }
             }}
           >
-            <div className="absolute inset-0 z-0 bg-[#0f2847]">
+            <div className="absolute inset-0 z-0 bg-[#0f2847] overflow-hidden">
               <img
                 src={practice.image}
                 alt={practice.name}
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 filter brightness-75 contrast-105"
+                className={`w-full h-full object-cover filter brightness-75 contrast-105 transition-transform duration-500 ${
+                  practice.id === 'cross-border-international'
+                    ? 'object-[82%_center] scale-125 group-hover:scale-[1.32]'
+                    : 'object-center group-hover:scale-105'
+                }`}
                 loading="lazy"
                 decoding="async"
                 onError={(e) => {

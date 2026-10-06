@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { legalArticlesData } from '../../data/mockData';
 import { LegalArticle } from '../../types';
-import { ArrowUpRight, ArrowRight, Clock } from 'lucide-react';
+import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { GoldStar } from '../ui/JusticeLogo';
 
 interface InsightsFaqSectionProps {
@@ -59,7 +59,7 @@ export const InsightsFaqSection: React.FC<InsightsFaqSectionProps> = ({
         </div>
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <p className="text-xs sm:text-sm text-slate-500 max-w-md">
-            Expert analysis on contemporary corporate law, banking regulations, landmark High Court rulings, and commercial dispute resolution in Kenya.
+            Expert analysis on contemporary corporate law, banking regulations, landmark High Court rulings, and commercial dispute resolution in Kenya, authored by Wafula Paul.
           </p>
           {onViewAllPublications && (
             <button
@@ -102,13 +102,9 @@ export const InsightsFaqSection: React.FC<InsightsFaqSectionProps> = ({
             className="group cursor-pointer flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-[#f8fafc] border border-[#e2e8f0] hover:border-[#183f6e]/40 hover:bg-white hover:shadow-xl transition-all duration-300"
           >
               <div>
-                <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
+                <div className="flex items-center text-xs text-slate-500 mb-3">
                   <span className="font-semibold text-[#183f6e] px-2.5 py-0.5 rounded-full bg-[#eef4f9] text-[11px]">
                     {article.category}
-                  </span>
-                  <span className="flex items-center gap-1 text-slate-400 font-medium">
-                    <Clock className="w-3 h-3" />
-                    {article.readTime}
                   </span>
                 </div>
 
