@@ -1,94 +1,91 @@
 import React from 'react';
 
-/**
- * Authentic W | P monogram from the uploaded WAFULA ADVOCATES LOGO.svg
- * Precision vectors from the official Adobe Illustrator source
- */
-export const WafulaLogoMonogram: React.FC<{
-  className?: string;
-  size?: number;
-  color?: string;
-}> = ({ className = '', size = 32, color }) => {
-  return (
-    <svg
-      viewBox="28 31 96 90"
-      width={size}
-      height={size}
-      className={`shrink-0 transition-transform duration-200 ${className}`}
-      fill={color || 'currentColor'}
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <g>
-        {/* W Letterform */}
-        <polygon points="67.28 84.09 61.66 64.64 57.89 64.64 52.24 84.09 47 64.64 42.71 64.64 49.49 89.53 54.47 89.53 59.77 71.3 65.04 89.53 69.77 89.53 76.53 64.64 72.5 64.64 67.28 84.09" />
-        {/* P Letterform */}
-        <path d="M101.02,65.34h-9.17v24.88h4.09v-8.53h5.08c2.35,0,4.31-.79,5.88-2.36,1.58-1.58,2.36-3.51,2.36-5.81s-.79-4.27-2.36-5.83c-1.58-1.56-3.54-2.35-5.88-2.35ZM104,76.63c-.78.82-1.78,1.23-2.99,1.23h-5.08v-8.67h5.08c1.21,0,2.2.41,2.99,1.23.78.82,1.17,1.85,1.17,3.11s-.39,2.29-1.17,3.11Z" />
-        {/* Central Divider */}
-        <rect x="80.77" y="46.55" width="2.41" height="59.8" />
-        {/* Geometric Framing Box */}
-        <polygon points="121.11 118.23 121.11 116.94 33.27 116.94 33.27 35.96 119.79 35.96 119.79 118.23 121.11 118.23 121.11 116.94 121.11 118.23 122.43 118.23 122.43 33.38 30.63 33.38 30.63 119.52 122.43 119.52 122.43 118.23 121.11 118.23" />
-      </g>
-    </svg>
-  );
-};
-
-export const JusticeLogo: React.FC<{
-  className?: string;
+interface JusticeLogoProps {
   size?: number;
   darkText?: boolean;
-  showTagline?: boolean;
-  monogramColor?: string;
   hideTextOnMobile?: boolean;
-}> = ({
-  className = '',
+  className?: string;
+}
+
+export const JusticeLogo: React.FC<JusticeLogoProps> = ({
   size = 32,
   darkText = false,
-  showTagline = false,
-  monogramColor,
   hideTextOnMobile = false,
+  className = '',
 }) => {
-  const chosenColor = monogramColor || (darkText ? '#183f6e' : '#ddf0ec');
-
   return (
-    <div className={`flex items-center gap-2.5 sm:gap-3 select-none ${className}`}>
-      {/* Official W | P monogram from uploaded SVG */}
-      <div className="relative shrink-0 flex items-center justify-center">
-        <WafulaLogoMonogram size={size} color={chosenColor} />
-      </div>
+    <div className={`flex items-center gap-3 ${className}`}>
+      {/* Monogram / Scales Emblem */}
+      <WafulaLogoMonogram size={size} color={darkText ? '#183f6e' : '#ddf0ec'} />
 
-      <div
-        className={`flex flex-col justify-center leading-none ${
-          hideTextOnMobile ? 'hidden lg:flex' : ''
-        }`}
-      >
-        <div className="flex items-center">
-          <span
-            className={`text-sm sm:text-base lg:text-lg font-bold tracking-tight font-sans whitespace-nowrap ${
-              darkText ? 'text-[#0a111a]' : 'text-white'
-            }`}
-          >
-            WAFULA PW &amp; CO. ADVOCATES
-          </span>
-        </div>
-        {showTagline ? (
-          <span
-            className={`text-[10px] sm:text-[11px] tracking-wider uppercase mt-1 font-medium ${
-              darkText ? 'text-slate-500' : 'text-slate-300'
-            }`}
-          >
-            Your Trusted Legal Partner
-          </span>
-        ) : null}
+      {/* Brand Typographic Wordmark */}
+      <div className={`flex flex-col ${hideTextOnMobile ? 'hidden sm:flex' : 'flex'}`}>
+        <span
+          className={`font-serif tracking-widest uppercase font-extrabold text-sm sm:text-base leading-none ${
+            darkText ? 'text-[#0a111a]' : 'text-white'
+          }`}
+          style={{ letterSpacing: '0.14em' }}
+        >
+          WAFULA PW
+        </span>
+        <span
+          className={`text-[9px] sm:text-[10px] tracking-widest uppercase font-semibold mt-0.5 ${
+            darkText ? 'text-slate-600' : 'text-[#ddf0ec]'
+          }`}
+          style={{ letterSpacing: '0.22em' }}
+        >
+          &amp; CO. ADVOCATES
+        </span>
       </div>
     </div>
   );
 };
 
-export const GoldStar: React.FC<{ className?: string }> = ({ className = 'w-3 h-3 text-[#ddf0ec]' }) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-    <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" />
-  </svg>
-);
+interface WafulaLogoMonogramProps {
+  size?: number;
+  color?: string;
+  className?: string;
+}
 
+export const WafulaLogoMonogram: React.FC<WafulaLogoMonogramProps> = ({
+  size = 32,
+  color = '#ddf0ec',
+  className = '',
+}) => {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={`shrink-0 ${className}`}
+      aria-hidden="true"
+    >
+      <circle cx="20" cy="20" r="19" stroke={color} strokeWidth="1.5" strokeOpacity="0.4" />
+      <circle cx="20" cy="20" r="16.5" fill={color} fillOpacity="0.12" />
+      {/* Pillar & Scales of Justice Graphic */}
+      <path
+        d="M20 7V33M12 13H28M12 13L9 20H15L12 13ZM28 13L25 20H31L28 13ZM16 33H24"
+        stroke={color}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
 
+export const GoldStar: React.FC<{ className?: string }> = ({ className = 'w-3 h-3 text-[#183f6e]' }) => {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+    </svg>
+  );
+};

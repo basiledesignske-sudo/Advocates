@@ -1,7 +1,7 @@
 import React from 'react';
-import { GoldStar } from '../ui/JusticeLogo';
 import { practiceAreasData } from '../../data/mockData';
 import { PracticeArea } from '../../types';
+import { ArrowUpRight } from 'lucide-react';
 
 interface PracticeAreaStripProps {
   onSelectPractice: (practice: PracticeArea) => void;
@@ -9,23 +9,22 @@ interface PracticeAreaStripProps {
 
 export const PracticeAreaStrip: React.FC<PracticeAreaStripProps> = ({ onSelectPractice }) => {
   return (
-    <div data-nav-theme="white" className="w-full bg-[#f8fafc] border-y border-[#e2e8f0] py-4 my-3 overflow-hidden select-none">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4 sm:gap-6 overflow-x-auto no-scrollbar py-1">
-          {practiceAreasData.map((item, index) => (
-            <React.Fragment key={item.id}>
-              <button
-                onClick={() => onSelectPractice(item)}
-                className="whitespace-nowrap text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#183f6e] transition-colors cursor-pointer flex items-center gap-2 focus:outline-none"
-              >
-                <span>{item.shortName}</span>
-              </button>
-              {index < practiceAreasData.length - 1 && (
-                <div className="shrink-0 flex items-center justify-center">
-                  <GoldStar className="w-2.5 h-2.5 text-[#183f6e]/40" />
-                </div>
-              )}
-            </React.Fragment>
+    <div className="w-full bg-[#123157] text-white border-y border-white/10 py-3.5 overflow-x-auto no-scrollbar">
+      <div className="max-w-7xl mx-auto px-4 flex items-center gap-3 sm:gap-6 whitespace-nowrap">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-[#ddf0ec] shrink-0 flex items-center gap-1.5">
+          <span className="w-2 h-2 rounded-full bg-[#ddf0ec] animate-pulse" />
+          Disciplines:
+        </span>
+        <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto no-scrollbar">
+          {practiceAreasData.map((practice) => (
+            <button
+              key={practice.id}
+              onClick={() => onSelectPractice(practice)}
+              className="text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/15 text-slate-200 hover:text-[#ddf0ec] border border-white/10 transition-colors inline-flex items-center gap-1 cursor-pointer shrink-0"
+            >
+              <span>{practice.name}</span>
+              <ArrowUpRight className="w-3 h-3 opacity-60" />
+            </button>
           ))}
         </div>
       </div>

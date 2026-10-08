@@ -15,7 +15,7 @@ export const practiceAreasData: PracticeArea[] = [
     tagline: 'Comprehensive corporate advisory for domestic and foreign entities investing in Kenya.',
     description: 'Our Corporate & Commercial Team (CCT) provides a comprehensive range of corporate and commercial services to domestic and foreign clients planning to invest, or do business, in Kenya. These services cover all aspects of the client’s business and all transactions undertaken within the framework of Kenya’s regulatory regime.',
     iconName: 'Building2',
-    image: '/images/Corporate.jpg',
+    image: '/images/corporate-law.jpeg',
     leadAttorneyId: 'wafula-paul',
     clientFocus: 'Domestic corporations, multinational enterprises, foreign direct investors (FDI), and private entities establishing operations in Kenya and East Africa.',
     keyServices: [
@@ -43,7 +43,7 @@ export const practiceAreasData: PracticeArea[] = [
     tagline: 'Strategic advocacy before Kenyan courts, specialized tribunals, and international arbitral panels.',
     description: 'Our Dispute Resolution Team (DRT) provides strategic analysis of disputes and practical, customized advice on realistic assessments of options, projected outcomes, and costs. We offer tactical counsel on all forms of dispute resolution, from negotiation and mediation to arbitration and litigation before the High Court, Court of Appeal, and Supreme Court.',
     iconName: 'Gavel',
-    image: '/images/Litigation.jpg',
+    image: '/images/litigation-practice.jpeg',
     leadAttorneyId: 'wafula-paul',
     clientFocus: 'Commercial banks, corporate entities, institutional receivers, property owners, and international businesses confronting high-stakes disputes.',
     keyServices: [
@@ -71,7 +71,7 @@ export const practiceAreasData: PracticeArea[] = [
     tagline: 'Guiding infrastructure, project finance, property transactions, and title perfection across Kenya.',
     description: 'Kenya has entered an era of blooming projects and infrastructure with both new and old players ranging from borrowers, lenders, investors, developers to individuals diversifying in real estate, banking, and finance. We address the specific needs of clients from groundbreaking preliminaries to perfection of securities and completion.',
     iconName: 'Home',
-    image: '/images/Real Estate.jpg',
+    image: '/images/conveyancing-property-law.jpeg',
     leadAttorneyId: 'wafula-paul',
     clientFocus: 'Real estate developers, institutional lenders, infrastructure funds, commercial landlords, diaspora buyers, and private property owners.',
     keyServices: [
