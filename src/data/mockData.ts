@@ -101,7 +101,7 @@ export const practiceAreasData: PracticeArea[] = [
     tagline: 'Rigorous guidance on responsible employment practices and workplace compliance.',
     description: 'Our Employment Team (ET) provides what clients seek: rigorous guidance on responsible employment practices. ET helps employers arrive at sound and mutually beneficial employment policies, leveraging deep knowledge of the dynamics of Kenyan and international labour laws and practices. Close collaboration with our Dispute Resolution Team maps out current trends from the Employment and Labour Relations Court of Kenya.',
     iconName: 'Briefcase',
-    image: '/images/Employment.jpg',
+    image: '/images/labour-law.jpeg',
     leadAttorneyId: 'wafula-paul',
     clientFocus: 'Corporate employers, human resource directors, executive leaders, trade unions, and statutory authorities.',
     keyServices: [
@@ -132,7 +132,7 @@ export const practiceAreasData: PracticeArea[] = [
     tagline: 'Integrated approach to protecting, enforcing, and commercializing intellectual assets across Africa.',
     description: 'Our Intellectual Property Team (IPT) offers clients an integrated approach to protecting their intellectual assets in Kenya and across Africa. Combining insightful advice and innovative tools, we help clients in obtaining, defending, enforcing, and exploiting intellectual property rights, including trademarks, industrial designs, copyrights, and patents.',
     iconName: 'ShieldAlert',
-    image: '/images/Intellectual Property.jpg',
+    image: '/images/intellectual-law.jpeg',
     leadAttorneyId: 'wafula-paul',
     clientFocus: 'International brand owners, innovators, technology startups, creative industries, and manufacturing conglomerates.',
     keyServices: [
