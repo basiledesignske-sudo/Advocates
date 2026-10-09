@@ -435,10 +435,12 @@ export default function App() {
       {/* Floating Top Navbar (Eagerly Loaded for Immediate Interaction) */}
       <Navbar
         currentView={currentView}
+        activePractice={activePractice}
         onOpenConsultation={() => handleNavigateContact()}
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenAdmin={() => setIsAdminOpen(true)}
         onNavigateSection={handleNavigateSection}
+        onSelectPractice={handleOpenPracticePage}
         onPreloadSection={preloadComponent}
       />
 
