@@ -8,8 +8,7 @@ import {
   ChevronUp,
 } from 'lucide-react';
 import { GoldStar } from '../ui/JusticeLogo';
-
-const wafulaPaulImg = '/wafula-paul.jpg';
+import wafulaPaulImg from '../../assets/images/wafula-paul.jpg';
 
 interface TeamSectionProps {
   attorneys?: Attorney[];

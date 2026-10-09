@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, Award, Phone } from 'lucide-react';
-import { GoldStar } from '../ui/JusticeLogo';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface HeroSectionProps {
   onOpenConsultation: () => void;
@@ -12,99 +11,56 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onExplorePractices,
 }) => {
   return (
-    <section
-      id="hero"
-      className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 sm:pb-24 overflow-hidden bg-[#0e2747]"
-    >
-      {/* Background Hero Image with Dark Gradient Overlay */}
-      <div className="absolute inset-0 z-0">
+    <section id="hero" data-nav-theme="blue" className="relative w-full min-h-screen flex flex-col justify-between overflow-hidden bg-[#0f2847]">
+      {/* Background Photography with measured contrast scrim */}
+      <div className="absolute inset-0 z-0 bg-[#0f2847]">
         <img
-          src="/public/images/lady-justice-statue-front-courthouse.jpg"
-          alt="Courthouse and Statue of Justice"
-          onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src = '/lady-justice-statue-front-courthouse.jpg';
-          }}
-          className="w-full h-full object-cover object-center filter brightness-[0.38] contrast-110"
+          src="/images/lady-justice-statue-front-courthouse.jpg"
+          alt="Statue of Lady Justice before courthouse - Wafula PW & Co. Advocates"
+          className="w-full h-full object-cover object-center filter brightness-[0.42] contrast-[1.08] transform scale-[1.01]"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+          referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0e2747] via-[#0e2747]/80 to-[#0e2747]/60" />
+        {/* Measured dark gradient overlays ensuring WCAG AA contrast (≥ 4.5:1) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a111a]/85 via-[#0a111a]/45 to-[#0a111a]/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#0a111a]/35 to-[#0a111a]/90" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col items-center sm:items-start justify-center">
-        {/* Chambers Accreditations Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#ddf0ec] text-xs font-semibold mb-6">
-          <GoldStar className="w-3.5 h-3.5 text-[#ddf0ec]" />
-          <span>High Court of Kenya Advocates · Commissioner for Oaths</span>
-        </div>
+      {/* Main Content Area */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-32 sm:pt-40 pb-16 flex-1 flex flex-col justify-center">
+        <div className="max-w-3xl">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.08] sm:leading-[1.1] mb-6 text-balance">
+            Strategic Counsel. <br className="hidden sm:inline" />
+            <span className="brand-gradient-text">Decisive Advocacy.</span>
+          </h1>
 
-        {/* Hero Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 max-w-4xl">
-          Decisive Legal Counsel.{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#ddf0ec] to-[#99d1c7]">
-            Relentless Courtroom Advocacy.
-          </span>
-        </h1>
+          <p className="text-base sm:text-lg md:text-xl text-slate-200/90 font-normal leading-relaxed mb-8 max-w-2xl text-balance">
+            Wafula PW &amp; Company Advocates is a full-service Kenyan law firm delivering tailor-made, practical, client-focused, and results-oriented legal solutions across corporate, commercial litigation, banking, and conveyancing.
+          </p>
 
-        <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-2xl mb-8 leading-relaxed">
-          Led by <strong>Wafula W. Paul</strong>, Walker Kontos alum with over a decade of trial experience, our chambers safeguard multi-million commercial interests, land titles, and complex corporate transactions.
-        </p>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-10">
+            <button
+              onClick={onOpenConsultation}
+              className="btn-mint px-7 py-3.5 rounded-full text-sm sm:text-base font-semibold shadow-xl flex items-center justify-center gap-2.5 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ddf0ec]"
+            >
+              <span>Schedule a Consultation</span>
+              <ArrowRight className="w-4 h-4 text-[#183f6e] group-hover:translate-x-0.5 transition-transform" />
+            </button>
 
-        {/* Call-to-Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-12">
-          <button
-            onClick={onOpenConsultation}
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#ddf0ec] text-[#183f6e] hover:bg-white text-sm sm:text-base font-bold shadow-xl transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer active:scale-95"
-          >
-            <span>Schedule Confidential Consultation</span>
-            <ArrowRight className="w-4 h-4 text-[#183f6e]" />
-          </button>
-
-          <button
-            onClick={onExplorePractices}
-            className="w-full sm:w-auto px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 text-sm sm:text-base font-semibold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer backdrop-blur-sm"
-          >
-            <span>Core Practice Disciplines</span>
-          </button>
-        </div>
-
-        {/* Highlights Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 pt-6 border-t border-white/15 w-full max-w-4xl text-left">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#ddf0ec] shrink-0">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-lg font-bold text-white tracking-tight">Ksh 2.05B+</div>
-              <div className="text-xs text-slate-300">Recovered for Banks</div>
-            </div>
+            <button
+              onClick={onExplorePractices}
+              className="px-6 py-3.5 rounded-full text-sm font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 transition-all backdrop-blur-sm cursor-pointer flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              <span>Explore Practice Areas</span>
+            </button>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#ddf0ec] shrink-0">
-              <Award className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-lg font-bold text-white tracking-tight">10+ Years</div>
-              <div className="text-xs text-slate-300">High Court Standing</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#ddf0ec] shrink-0">
-              <ShieldCheck className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-lg font-bold text-white tracking-tight">Ksh 900M</div>
-              <div className="text-xs text-slate-300">Land Title Protected</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#ddf0ec] shrink-0">
-              <Phone className="w-5 h-5" />
-            </div>
-            <div>
-              <div className="text-lg font-bold text-white tracking-tight">24/7 Duty</div>
-              <div className="text-xs text-slate-300">Urgent Injunctions</div>
+          <div className="flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-300 pt-6 border-t border-white/15">
+            <div className="flex items-center gap-1.5">
+              <CheckCircle2 className="w-4 h-4 text-[#ddf0ec]" />
+              <span>MCMX Building, First Floor, Kiambu Road</span>
             </div>
           </div>
         </div>
